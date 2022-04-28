@@ -23,6 +23,7 @@ package Aula3Funcoes
               if (fortune.contains("Take it easy")) break;
            }
         }
+
  */
 
 fun main(){
