@@ -34,17 +34,29 @@ fun main(){
 }
 
 fun getFortuneCookie(): String {
-    val message = listOf("You will have a great day!",
+    val birth: Int = getBirthday()
+    val message = listOf(
+        "You will have a great day!",
         "Things will go well for you today.",
         "Enjoy a wonderful day of success.",
         "Be humble and all will turn out well.",
         "Today is a good day for exercising restraint.",
         "Take it easy and enjoy life!",
-        "Treasure your friends because they are your greatest fortune.")
+        "Treasure your friends because they are your greatest fortune.",
+        "It's your lucky day!"
+    )
 
-    print("Enter your birthday: ")
-    val birth = readLine()?.toIntOrNull() ?: 1
-    return message[birth.rem(message.size)]
+    return when(birth) {
+        in 28..30 -> "Soon you'll take a trip!"
+        in 1..7 -> "Be patient! The Great Wall didn't get build in one day."
+        else -> message[birth.rem(message.size)]
+    }
 }
 
+fun getBirthday(): Int {
+    print("Enter your birthday: ")
+    return readLine()?.toIntOrNull() ?: 1 // inline variable
+    // val birth = readLine()?.toIntOrNull() ?: 1
+    // return birth
+}
 
